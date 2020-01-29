@@ -1,0 +1,37 @@
+{% extends 'manage.html' %}
+{%block content%}
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+
+<div class="div2" id="div2" >
+    <span class="span1" >管理首页</span>
+    <span>/</span>
+    <span id="span2">内容添加</span>
+    <h2 style="margin-left: -10px">内容添加</h2>
+    <br>
+</div>
+<form action="/admin/add_content" method="post"  style="position: absolute;top: 200px;left: 20px">
+    <p style="font-weight: bold;">分类:</p>
+    <select style="width: 1000px" name="c_name1" id="c_name1"  class="form-control" placeholder="请输入分类名" aria-describedby="basic-addon1">
+        {%for class2 in classes%}
+        <option>{{class2.c_name}}</option>
+        {%endfor%}
+    </select>
+    <br>
+    <p style="font-weight: bold;">标题：</p>
+    <input style="width: 1000px" name="title" type="text" class="form-control" placeholder="请输入内容标题" aria-describedby="basic-addon1">
+    <br>
+    <p style="font-weight: bold;">简介：</p>
+    <input style="width: 1000px;height: 100px" name="simple" type="text" class="form-control" placeholder="请输入内容简介" aria-describedby="basic-addon1">
+    <br>
+    <p style="font-weight: bold;">内容：</p>
+    <input style="width: 1000px;height: 120px" name="content" type="text" class="form-control" placeholder="请输入内容" aria-describedby="basic-addon1">
+    <br>
+    <button type="submit" class="btn btn-default" id="add_c">提交</button>
+</form>
+
+{%endblock%}

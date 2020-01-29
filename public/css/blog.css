@@ -1,0 +1,226 @@
+body {
+    padding-bottom: 50px;
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #eee;
+    z-index: 9999;
+    padding-top: 15px;
+}
+a{
+
+    text-decoration: none;
+    color: black;
+    /*border-bottom: #EE872A 1px solid;*/
+    padding: 15px;
+
+
+
+}
+a:hover{
+    border-bottom: #EE872A 1px solid;
+}
+
+.div1{
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    background: white;
+    margin-top: 50px;
+    margin-left: 200px;
+    padding-top: 10px;
+}
+
+button{
+    height: 35px;
+    width: 80px;
+    position: absolute;
+    left: 70px;
+    background: #EE872A;
+}
+.div2{
+    width: 680px;
+    height: 50px;
+    background: white;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    clear: both;
+}
+.div3{
+    position: absolute;
+    left: 1000px;
+    top: 285px;
+
+}
+.div4{
+    width: 400px;
+    height: 350px;
+    background:white;
+    overflow: hidden;
+
+}
+
+.login{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #aaaaaa;
+    width: 250px;
+
+}
+.form1{
+    margin-left: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+
+}
+.input1{
+    height: 20px;
+    width: 150px;
+}
+.input2{
+    background: #EE872A;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 67px;
+    width: 160px;
+}
+.span1{
+    margin-left: 140px;
+    font-size: 10px;
+
+}
+.div5{
+    width: 400px;
+    margin-top: 25px;
+    height: 200px;
+    background: white;
+    overflow: hidden;
+
+}
+.div44{
+
+    width: 300px;
+    height: 250px;
+    background:white;
+    overflow: hidden;
+}
+.span22{
+    color: #2e6da4;
+}
+.aa2{
+    text-align: center;
+    background: #EE872A;
+    width: 100px;
+
+    position: relative;
+    left: 150px;
+    top: 50px;
+
+}
+.div222{
+    background: white;
+    text-align: center;
+    width: 700px;
+    margin-left: 200px;
+    height: 60px;
+
+
+}
+.div55{
+    width: 700px;
+    height: 600px;
+    background: white;
+    margin-left: 200px;
+}
+.comment{
+    margin-left: 30px;
+    margin-top: 30px;
+    float:left;
+    font-weight: bold;
+
+}
+
+.comment_n{
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+.div56{
+    position: relative;
+    top: 50px;
+    left: 30px;
+}
+.div566{
+    position: relative;
+    top: 70px;
+    width: 650px;
+    left: 30px;
+    background: red;
+    text-align: center;
+}
+.input55{
+    border: #2e6da4 1px solid;
+    width: 550px;
+    height: 50px;
+
+
+}
+.a55{
+    display: inline-block;
+    height: 55px;
+    width: 80px;
+    background: #2e6da4;
+    position: relative;
+    left: -6px;
+    top: -3px;
+
+}
+.aa56{
+    color: white;
+    display: inline-block;
+    padding-top: 13px;
+    margin-left: 8px;
+}
+.div57{
+    position: absolute;
+    top: 710px;
+    left: 210px;
+
+}
+.span55{
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 20px;
+}
+.span56{
+    display: inline-block;
+    margin-left: 425px;
+    padding-top: 30px;
+}
+.p55{
+    margin-top: 15px;
+    margin-left: 30px;
+
+}
+.div58{
+    position: absolute;
+    top: 1100px;
+    left: 250px;
+}
+.button1{
+    position: absolute;
+    top: 51px;
+    left: 552px;
+    background: #2e6da4;
+    height: 55px;
+    color: white;
+}

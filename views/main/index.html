@@ -1,0 +1,69 @@
+{% extends 'blog_index.html'%}
+
+{% block text%}
+<div class="div1">
+    <h2>{{content.title}}</h2>
+    作者：<span class="span22">{{content.author}}</span>
+    时间：<span class="span22">{{content.times}}</span>
+    阅读:<span class="span22">{{content.read_s}}</span>
+    评论:<span class="span22">{{content.comment}}</span>
+    <p>{{content.content}}</p>
+</div>
+
+<br/>
+<div class="div55">
+    <div>
+        <span class="comment">评论</span>
+        <span class="comment_n">一共有{{content.comment}}条评论</span>
+    </div>
+    {%if userInfo._id%}
+    <div class="div56">
+        <form action="/add_comment" id="form7">
+            <input class="input55" type="text" name="cm">
+            <input style="display: none" type="text" name="id" value="{{content._id.toString()}}">
+            <input style="display: none" type="text" name="read_s" value="{{content.read_s}}">
+            <input style="display: none" type="text" name="num" value="{{content.comment}}">
+            <input style="display: none" type="text" name="user_id" value="{{userInfo._id.toString()}}">
+            <button class="button1" id="button1" type="button">提交</button>
+        </form>
+    </div>
+
+    <div class="div57">
+        {%for i in comment%}
+        <span class="span55">{{i.author}}</span>
+        <span class="span56">{{i.time}}</span>
+        <p class="p55">{{i.comment}}</p>
+        {%endfor%}
+
+    </div>
+
+
+
+    <div class="div58">
+        {%if page==1%}
+        <span>没有上一页了</span>
+        {%else%}
+        <span id="last6">上一页</span>
+        {%endif%}
+        <span style="margin-left: 240px">{{page}}/</span>
+        <span>{{totalPage}}</span>
+        {%if page==totalPage%}
+        <span style="margin-left: 150px">没有下一页了</span>
+        {%else%}
+        <span style="margin-left: 150px" id="next6">下一页</span>
+        {%endif%}
+    </div>
+    {%else%}
+    <div class="div566">你还没有登陆请先登入</div>
+    {%endif%}
+
+</div>
+
+<!--传替当前页面给后台，-->
+<form id="form6" action="/read" style="display: none" >
+    <input type="text" value={{page}} id="page6" name="page">
+    <input type="text" value="{{content._id.toString()}}" name="id">
+
+</form>
+
+{% endblock%}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/blog.css">
+
+    <script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/public/js/info.js"></script>
+
+</head>
+<body style="background: #eee;width: 1500px">
+<div  style="text-align: center;width: 1500px">
+    <img src="/public/blog_images/IMG_0293.jpg" style="width: 1500px;height: 200px">
+    <img style="position: absolute;top: 50px;left: 500px" src="/public/blog_images/00002637.png">
+    <a  href="/" style="border-bottom: #EE872A 1px solid;">首页</a>
+    {% for class1 in classes%}
+    <a href="#">{{class1.c_name}}</a>
+    {%endfor%}
+</div>
+{%block text%}
+<div >
+{% for content in content  %}
+    <div class="div1">
+        <h2>{{content.title}}</h2>
+        作者：<span class="span22">{{content.author}}</span>
+        时间：<span class="span22">{{content.times}}</span>
+        阅读:<span class="span22">{{content.read_s}}</span>
+        评论:<span class="span22">{{content.comment}}</span>
+        <p>{{content.content}}</p>
+        <div class="aa2"><a href="/read?id={{content._id.toString()}}">阅读全文</a></div>
+
+    </div>
+    <br/>
+{%endfor%}
+<div class="div222">
+    {% if page==1%}
+    <a style="float: left;" href="#">没有上一页了</a>
+    {%else%}
+    <a style="float: left;" id="last4">上一页</a>
+    {%endif%}
+    {% if page==totalPage%}
+    <a style="float: right" href="#">没有下一页了</a>
+    {%else%}
+    <a style="float: right" id="next4">下一页</a>
+    {%endif%}
+    <br/>
+    <span>{{page}}</span>/
+    <span>{{totalPage}}</span>
+</div>
+{%endblock%}
+    <br><br/>
+
+    <div class="div3">
+
+        <!-- 登入成功部分区域-->
+
+        {% if userInfo._id and userInfo.name!="admin" %}
+        <div class="div4" id="div6" >
+            <div class="login" ><span id="tr2"  style="border-bottom: #EE872A 1px solid;padding-bottom: 10px">用户信息</span></div>
+            <p style="margin-left: 30px" id="p1">{{userInfo.name}}</p>
+            <p style="color: #EE872A;margin-left: 30px">你好，欢迎光临我的博客！</p>
+            <br>
+            <a style="margin-left: 15px;color: #40B3DF" id="exit" href="/">退出</a>
+        </div>
+        {% elif userInfo.name=="admin" %}
+        <div class="div4" id="div8" >
+            <div class="login" ><span id="tr4"  style="border-bottom: #EE872A 1px solid;padding-bottom: 10px">用户信息</span></div>
+            <p style="margin-left: 30px" id="p2">admin</p>
+            <span style="color: #EE872A;margin-left: 30px">你好，管理员！</span>
+            <a style="margin-left: 2px;color: #40B3DF" id="manage" href="/api/manage">进入管理界面</a>
+            <br><br>
+            <a style="margin-left: 15px;color: #40B3DF" id="exit1" href="/">退出</a>
+        </div>
+        <!-- 登入界面-->
+        {% else%}
+        <div class="div4" id="div4" >
+            <div class="login" ><span id="tr1"  style="border-bottom: #EE872A 1px solid;padding-bottom: 10px">登入</span></div>
+            <form class="form1" id="form1" action="" method="post">
+                <label>用户名：</label>
+                <input id="name" name="name" class="input1" type="text">
+
+                <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;<label>密码：</label>
+                <input id="psw" name="psw" class="input1" type="password">
+                <p id="tips" style="color:red;margin-left: 30px"></p>
+                <input id="login" class="input2"  type="button" value="登入">
+            </form>
+            <br>
+            <span class="span1">还没注册?</span><a id="register" href="#" style="text-decoration: #40B3DF ;border-bottom: none;font-size: 10px;margin-left: -10px">立即注册</a>
+        </div>
+        {%endif%}
+        <!--注册界面-->
+        <div class="div4" id="div7" style="display: none">
+            <div class="login" ><span id="tr3"  style="border-bottom: #EE872A 1px solid;padding-bottom: 10px">注册</span></div>
+            <form class="form1" id="form2" action="" method="post">
+                <label>用户名：</label>
+                <input id="name1" name="name1" class="input1" type="text">
+
+                <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;<label>密码：</label>
+                <input id="psw1" name="psw1" class="input1" type="password">
+                <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;<label>确认：</label>
+                <input id="psw2" name="psw2" class="input1" type="password">
+                <p id="tips1" style="color:red;margin-left: 60px"></p>
+                <input id="login1" class="input2"  type="button" value="注册">
+            </form>
+            <br>
+
+            <span class="span1">已有账号？</span><a href="/" style="text-decoration: #40B3DF ;border-bottom: none;font-size: 10px;margin-left: -10px">登入</a>
+
+        </div>
+
+        <div class="div5">
+            <div class="login"><span style="border-bottom: #EE872A 1px solid;padding-bottom: 10px">社区</span></div>
+            <br/>
+            <a href="#" style="color: red;border: none;text-decoration: red">学习课堂</a>
+            <br><br/>
+            <a href="#" style="color: red;border: none;text-decoration: red">学习茶馆</a>
+        </div>
+
+    </div>
+</div>
+<form id="form4" action="/" style="display: none" >
+    <input type="text" value={{page}} id="page4" name="page">
+</form>
+
+<div class="footer">
+    Copyright @ 江港林小组版权所有 |京ICP备102442号
+</div>
+
+</body>
+</html>

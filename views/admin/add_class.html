@@ -1,0 +1,25 @@
+{% extends 'manage.html' %}
+{%block content%}
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+
+<div class="div2" id="div2" >
+    <span class="span1" >管理首页</span>
+    <span>/</span>
+    <span id="span2">分类添加</span>
+    <h2 style="margin-left: -10px">分类添加</h2>
+    <br>
+    <p style="font-weight: bold;margin-left: -8px">分类名称：</p>
+</div>
+
+<form action="/admin/add_class" method="post"  style="position: absolute;top: 200px;left: 20px">
+    <input style="width: 1000px" name="c_name" type="text" class="form-control" placeholder="请输入分类名" aria-describedby="basic-addon1">
+    <br>
+    <button type="submit" class="btn btn-default" id="add_c">添加</button>
+</form>
+
+{%endblock%}

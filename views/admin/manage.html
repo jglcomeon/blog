@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理界面</title>
+
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/manage.css">
+    <script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/public/js/manage.js"></script>
+</head>
+<body>
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+<nav class="navbar navbar-default navbar-fixed-top" style="display: inline-block">
+    <ul class="nav nav-pills">
+        <li role="presentation" ><a href="/admin/manage">后台管理</a></li>
+        <li role="presentation" ><a href="/admin/manage/user_ajax" id="user_m1">用户管理</a></li>
+        <li role="presentation" style="margin-left: 10px">
+            <select name="select1" onchange="window.location=this.value" style="border: 0px;margin-top: 10px">
+                <option value="">分类管理</option>
+                <option value="/admin/class_index">分类首页</option>
+                <option value="/admin/add">添加分类</option>
+            </select>
+        </li>
+        <li role="presentation" style="margin-left: 10px" >
+            <select name="select2" style="border: 0px;margin-top: 10px" onchange="window.location=this.value">
+                <option value="0">内容管理</option>
+                <option value="/admin/add_index">内容首页</option>
+                <option value="/admin/add_c">添加内容</option>
+            </select>
+        </li>
+        <li role="presentation" style="float: right;margin-right: 10px">
+            <select name="select3" id="select3" onchange="window.location=this.value" style="border: 0px;margin-top: 10px">
+                <option value="0">admin</option>
+                <option value="/api/exit1_ajax">退出</option>
+            </select>
+        </li>
+    </ul>
+</nav>
+<br><br><br>
+
+{% block content %}
+<div class="jumbotron" id="div1" >
+
+    <h1 style="padding-left: 10px">Hello, Admin!</h1>
+    <p style="padding-left: 10px">欢迎进入我的博客后台管理</p>
+
+</div>
+{% endblock %}
+
+
+<div class="footer">
+    Copyright @ 江港林小组版权所有 |京ICP备102442号
+</div>
+</body>
+</html>

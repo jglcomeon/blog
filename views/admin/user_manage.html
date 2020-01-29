@@ -1,0 +1,62 @@
+{% extends 'manage.html'%}
+{% block content%}
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+<div class="div2" id="div2" >
+    <span class="span1" >管理首页</span>
+    <span>/</span>
+    <span id="span2">用户管理</span>
+    <h2 style="margin-left: -10px">用户列表</h2>
+    <table class="table1">
+        <tr class="tr1">
+            <td class="td1">ID</td>
+            <td class="td2">用户名</td>
+            <td class="td3">密码</td>
+            <td class="td4">是否是管理员</td>
+        </tr>
+        {%for user in users%}
+        <tr >
+            <td class="td1">{{user._id.toString()}}</td>
+
+            <td class="td2">{{user.name}}</td>
+            <td class="td3">{{user.psw}}</td>
+            {%if user.name=="admin"%}
+            <td class="td4">是</td>
+            {%else%}
+            <td class="td4">否</td>
+            {%endif%}
+
+        </tr>
+        {%endfor%}
+
+
+    </table>
+</div>
+
+<!--分页-->
+<nav aria-label="..." >
+    <ul class="pager">
+
+        <li class="previous" style="position: absolute;top: 400px;left: 150px"><a href="#" id="last"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+        <li style="position: absolute;top: 400px;left: 300px">一共有<span>{{count}}</span>条数据，每页显示<span>{{limit}}</span>数据，一共有<span >{{ totalPage}}</span>页,当前第<span >{{page}}</span>页</li>
+
+        <li class="next" style="position: absolute;top: 400px;left: 800px"><a href="#" id="next">下一页<span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
+{%if page>=totalPage%}
+<p id="tips" style="position: absolute;top: 320px;left: 420px;color: red;">我已经到底了,不能再往后了</p>
+{%endif%}
+{%if page==1%}
+<p id="tips1" style="position: absolute;top: 320px;left: 420px;color: red;">我已经到头了,不能再往前了</p>
+{%endif%}
+
+<form id="form1" action="/admin/manage/user_ajax" style="display: none" >
+    <input type="text" value={{page}} id="page" name="page">
+
+</form>
+
+{%endblock%}

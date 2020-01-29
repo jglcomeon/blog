@@ -1,0 +1,18 @@
+{%extends 'manage.html'%}
+{%block content%}
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+<div class="div2" id="div2" >
+    <span class="span1" >管理首页</span>
+    <span>/</span>
+    <span id="span2">成功提示</span>
+    <br/><br>
+    <p style="margin-left: -10px;background: #eee;width: 1000px;height: 40px;padding-top: 10px;padding-left:10px">成功提示</p>
+    <p style="font-weight: bold;">修改分类成功！</p>
+    <p style="margin-left: -10px;padding-top: 10px;background: #eee;width: 1000px;height: 40px"><a style="padding-left: 10px" href="/admin/class_index">点击这里跳转</a></p>
+</div>
+{%endblock%}

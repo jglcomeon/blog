@@ -1,0 +1,27 @@
+{%extends 'manage.html'%}
+
+{%block content%}
+{% if !userInfo.name ||userInfo.name!="admin"%}
+<script>
+    alert("请先登入管理员账号！");
+    window.location.replace('/');
+</script>
+{%endif%}
+
+<div class="div2" id="div2" >
+    <span class="span1" >管理首页</span>
+    <span>/</span>
+    <span id="span2">修改分类</span>
+    <h2 style="margin-left: -10px">修改分类</h2>
+    <br>
+    <p style="font-weight: bold;margin-left: -8px">新输入新的分类名：</p>
+</div>
+
+<form action="/admin/modify_c" method="post"  style="position: absolute;top: 200px;left: 20px">
+    <input style="width: 1000px" name="c_name" type="text" class="form-control" placeholder="请输修改的分类名" aria-describedby="basic-addon1">
+    <input type="text" style="display: none" name="id" value="{{id}}">
+    <br>
+    <button type="submit" class="btn btn-default" id="add_c">修改</button>
+</form>
+
+{%endblock%}
